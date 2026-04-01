@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IRONFORM — Forge Your Limits</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700&family=Barlow:wght@300;400;500&display=swap"
+    rel="stylesheet" />
   <style>
     /* ── RESET & ROOT ── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     :root {
       --black: #0a0a0a;
       --charcoal: #141414;
@@ -19,12 +29,16 @@
       --off-white: #c8c3bc;
       --accent: #e85d04;
       --accent2: #f48c06;
-      --dim: rgba(240,237,232,0.08);
+      --dim: rgba(240, 237, 232, 0.08);
       --font-display: 'Bebas Neue', cursive;
       --font-cond: 'Barlow Condensed', sans-serif;
       --font-body: 'Barlow', sans-serif;
     }
-    html { scroll-behavior: smooth; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       background: var(--black);
       color: var(--white);
@@ -35,8 +49,11 @@
 
     /* ── CUSTOM CURSOR ── */
     .cursor {
-      position: fixed; top: 0; left: 0;
-      width: 12px; height: 12px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 12px;
+      height: 12px;
       background: var(--accent);
       border-radius: 50%;
       pointer-events: none;
@@ -45,9 +62,13 @@
       transition: transform 0.1s, width 0.2s, height 0.2s;
       mix-blend-mode: exclusion;
     }
+
     .cursor-ring {
-      position: fixed; top: 0; left: 0;
-      width: 36px; height: 36px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 36px;
+      height: 36px;
       border: 1px solid var(--accent);
       border-radius: 50%;
       pointer-events: none;
@@ -56,29 +77,54 @@
       transition: transform 0.18s ease, width 0.3s, height 0.3s, opacity 0.3s;
       opacity: 0.5;
     }
-    body:hover .cursor { width: 12px; height: 12px; }
-    a:hover ~ .cursor, button:hover ~ .cursor { width: 24px; height: 24px; }
+
+    body:hover .cursor {
+      width: 12px;
+      height: 12px;
+    }
+
+    a:hover~.cursor,
+    button:hover~.cursor {
+      width: 24px;
+      height: 24px;
+    }
 
     /* ── SCROLLBAR ── */
-    ::-webkit-scrollbar { width: 4px; }
-    ::-webkit-scrollbar-track { background: var(--black); }
-    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
+    ::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--black);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--accent);
+      border-radius: 2px;
+    }
 
     /* ── NAV ── */
     nav {
-      position: fixed; top: 0; left: 0; right: 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
       z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       padding: 1.4rem 3rem;
       background: transparent;
       transition: background 0.4s, backdrop-filter 0.4s;
       border-bottom: 1px solid transparent;
     }
+
     nav.scrolled {
-      background: rgba(10,10,10,0.92);
+      background: rgba(10, 10, 10, 0.92);
       backdrop-filter: blur(16px);
       border-bottom-color: var(--border);
     }
+
     .nav-logo {
       font-family: var(--font-display);
       font-size: 2rem;
@@ -86,8 +132,17 @@
       color: var(--white);
       text-decoration: none;
     }
-    .nav-logo span { color: var(--accent); }
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+
+    .nav-logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
     .nav-links a {
       font-family: var(--font-cond);
       font-size: 0.9rem;
@@ -97,7 +152,11 @@
       text-decoration: none;
       transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--accent); }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
     .nav-cta {
       font-family: var(--font-cond);
       font-size: 0.85rem;
@@ -111,7 +170,11 @@
       cursor: none;
       transition: background 0.2s, transform 0.2s;
     }
-    .nav-cta:hover { background: var(--accent2); transform: translateY(-1px); }
+
+    .nav-cta:hover {
+      background: var(--accent2);
+      transform: translateY(-1px);
+    }
 
     /* ── SECTION 1: HERO ── */
     #hero {
@@ -121,11 +184,16 @@
       position: relative;
       overflow: hidden;
     }
+
     .hero-left {
-      display: flex; flex-direction: column; justify-content: flex-end;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
       padding: 10rem 3rem 5rem 3rem;
-      position: relative; z-index: 2;
+      position: relative;
+      z-index: 2;
     }
+
     .hero-tag {
       font-family: var(--font-cond);
       font-size: 0.8rem;
@@ -133,9 +201,19 @@
       text-transform: uppercase;
       color: var(--accent);
       margin-bottom: 1.2rem;
-      display: flex; align-items: center; gap: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
     }
-    .hero-tag::before { content: ''; display: block; width: 40px; height: 1px; background: var(--accent); }
+
+    .hero-tag::before {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--accent);
+    }
+
     .hero-title {
       font-family: var(--font-display);
       font-size: clamp(5rem, 9vw, 10rem);
@@ -143,11 +221,16 @@
       color: var(--white);
       letter-spacing: 0.02em;
     }
+
     .hero-title .stroke {
       -webkit-text-stroke: 1px var(--white);
       color: transparent;
     }
-    .hero-title .orange { color: var(--accent); }
+
+    .hero-title .orange {
+      color: var(--accent);
+    }
+
     .hero-subtitle {
       font-size: 1rem;
       font-weight: 300;
@@ -156,7 +239,14 @@
       max-width: 380px;
       margin: 2rem 0 2.5rem;
     }
-    .hero-btns { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
     .btn-primary {
       font-family: var(--font-cond);
       font-size: 0.9rem;
@@ -172,7 +262,12 @@
       text-decoration: none;
       display: inline-block;
     }
-    .btn-primary:hover { background: var(--accent2); transform: translateY(-2px); }
+
+    .btn-primary:hover {
+      background: var(--accent2);
+      transform: translateY(-2px);
+    }
+
     .btn-ghost {
       font-family: var(--font-cond);
       font-size: 0.9rem;
@@ -188,33 +283,54 @@
       text-decoration: none;
       display: inline-block;
     }
-    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
     .hero-right {
       position: relative;
       overflow: hidden;
     }
+
     .hero-img-wrap {
-      width: 100%; height: 100%;
+      width: 100%;
+      height: 100%;
       background: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=900&auto=format&fit=crop&q=80') center/cover;
       filter: grayscale(30%) contrast(1.1);
     }
+
     .hero-img-overlay {
-      position: absolute; inset: 0;
+      position: absolute;
+      inset: 0;
       background: linear-gradient(to right, var(--black) 0%, transparent 30%),
-                  linear-gradient(to top, var(--black) 0%, transparent 40%);
+        linear-gradient(to top, var(--black) 0%, transparent 40%);
     }
+
     .hero-stat-badge {
-      position: absolute; bottom: 4rem; right: 3rem;
+      position: absolute;
+      bottom: 4rem;
+      right: 3rem;
       background: var(--charcoal);
       border: 1px solid var(--border);
       padding: 1.5rem 2rem;
       text-align: center;
       animation: floatBadge 3s ease-in-out infinite;
     }
+
     @keyframes floatBadge {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
     }
+
     .hero-stat-badge .num {
       font-family: var(--font-display);
       font-size: 3rem;
@@ -222,6 +338,7 @@
       display: block;
       line-height: 1;
     }
+
     .hero-stat-badge .lbl {
       font-family: var(--font-cond);
       font-size: 0.75rem;
@@ -229,9 +346,16 @@
       text-transform: uppercase;
       color: var(--off-white);
     }
+
     .hero-scroll-hint {
-      position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
-      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
       font-family: var(--font-cond);
       font-size: 0.7rem;
       letter-spacing: 0.3em;
@@ -240,52 +364,25 @@
       opacity: 0.5;
       animation: pulse 2s infinite;
     }
+
     .hero-scroll-hint::after {
       content: '';
-      display: block; width: 1px; height: 50px;
+      display: block;
+      width: 1px;
+      height: 50px;
       background: linear-gradient(to bottom, var(--accent), transparent);
     }
-    @keyframes pulse { 0%,100%{opacity:.5} 50%{opacity:.9} }
 
-    /* ── SECTION 2: STATS ── */
-    #stats {
-      background: var(--charcoal);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 3.5rem 3rem;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-    }
-    .stat-item {
-      display: flex; flex-direction: column; align-items: center;
-      padding: 1.5rem 2rem;
-      position: relative;
-      text-align: center;
-    }
-    .stat-item:not(:last-child)::after {
-      content: ''; position: absolute; right: 0; top: 20%; bottom: 20%;
-      width: 1px; background: var(--border);
-    }
-    .stat-num {
-      font-family: var(--font-display);
-      font-size: 4.5rem;
-      line-height: 1;
-      color: var(--white);
-    }
-    .stat-num span { color: var(--accent); }
-    .stat-label {
-      font-family: var(--font-cond);
-      font-size: 0.8rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--off-white);
-      margin-top: 0.4rem;
-    }
-    .stat-desc {
-      font-size: 0.8rem;
-      color: #666;
-      margin-top: 0.3rem;
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: .5
+      }
+
+      50% {
+        opacity: .9
+      }
     }
 
     /* ── SECTION 3: PROGRAMS ── */
@@ -295,20 +392,28 @@
       position: relative;
       overflow: hidden;
     }
+
     #programs::before {
       content: 'PROGRAMS';
-      position: absolute; top: 3rem; right: -2rem;
+      position: absolute;
+      top: 3rem;
+      right: -2rem;
       font-family: var(--font-display);
       font-size: 12rem;
       color: var(--dim);
       pointer-events: none;
       white-space: nowrap;
     }
+
     .section-head {
-      display: flex; align-items: flex-end; justify-content: space-between;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
       margin-bottom: 4rem;
-      flex-wrap: wrap; gap: 1.5rem;
+      flex-wrap: wrap;
+      gap: 1.5rem;
     }
+
     .section-tag {
       font-family: var(--font-cond);
       font-size: 0.8rem;
@@ -316,20 +421,32 @@
       text-transform: uppercase;
       color: var(--accent);
       margin-bottom: 0.7rem;
-      display: flex; align-items: center; gap: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
     }
-    .section-tag::before { content: ''; display: block; width: 30px; height: 1px; background: var(--accent); }
+
+    .section-tag::before {
+      content: '';
+      display: block;
+      width: 30px;
+      height: 1px;
+      background: var(--accent);
+    }
+
     .section-title {
       font-family: var(--font-display);
       font-size: clamp(3rem, 5vw, 5rem);
       line-height: 0.95;
     }
+
     .programs-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.5px;
       background: var(--border);
     }
+
     .program-card {
       background: var(--charcoal);
       padding: 2.5rem;
@@ -338,9 +455,20 @@
       transition: background 0.3s;
       cursor: none;
     }
-    .program-card:hover { background: var(--steel); }
-    .program-card:hover .prog-arrow { opacity: 1; transform: translateX(0); }
-    .program-card:hover .prog-num { color: var(--accent); }
+
+    .program-card:hover {
+      background: var(--steel);
+    }
+
+    .program-card:hover .prog-arrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .program-card:hover .prog-num {
+      color: var(--accent);
+    }
+
     .prog-num {
       font-family: var(--font-display);
       font-size: 5rem;
@@ -349,11 +477,13 @@
       transition: color 0.3s;
       margin-bottom: 1rem;
     }
+
     .prog-icon {
       font-size: 2rem;
       margin-bottom: 1rem;
       display: block;
     }
+
     .prog-title {
       font-family: var(--font-cond);
       font-size: 1.6rem;
@@ -362,29 +492,40 @@
       text-transform: uppercase;
       margin-bottom: 1rem;
     }
+
     .prog-desc {
       font-size: 0.85rem;
       color: var(--off-white);
       line-height: 1.7;
       margin-bottom: 2rem;
     }
+
     .prog-meta {
-      display: flex; gap: 1.5rem;
+      display: flex;
+      gap: 1.5rem;
       font-family: var(--font-cond);
       font-size: 0.75rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: #555;
     }
-    .prog-meta span { color: var(--accent); margin-right: 0.3rem; }
+
+    .prog-meta span {
+      color: var(--accent);
+      margin-right: 0.3rem;
+    }
+
     .prog-arrow {
-      position: absolute; bottom: 2.5rem; right: 2.5rem;
+      position: absolute;
+      bottom: 2.5rem;
+      right: 2.5rem;
       font-size: 1.5rem;
       opacity: 0;
       transform: translateX(-10px);
       transition: opacity 0.3s, transform 0.3s;
       color: var(--accent);
     }
+
     .prog-tag {
       display: inline-block;
       font-family: var(--font-cond);
@@ -392,9 +533,9 @@
       letter-spacing: 0.2em;
       text-transform: uppercase;
       padding: 0.3rem 0.8rem;
-      background: rgba(232,93,4,0.15);
+      background: rgba(232, 93, 4, 0.15);
       color: var(--accent);
-      border: 1px solid rgba(232,93,4,0.3);
+      border: 1px solid rgba(232, 93, 4, 0.3);
       margin-bottom: 1rem;
     }
 
@@ -404,15 +545,18 @@
       background: var(--charcoal);
       border-top: 1px solid var(--border);
     }
+
     .how-inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 6rem;
       align-items: center;
     }
+
     .how-img-block {
       position: relative;
     }
+
     .how-img {
       width: 100%;
       aspect-ratio: 4/5;
@@ -420,33 +564,56 @@
       background: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=700&auto=format&fit=crop&q=80') center/cover;
       filter: grayscale(20%);
     }
+
     .how-img-accent {
       position: absolute;
-      bottom: -2rem; right: -2rem;
+      bottom: -2rem;
+      right: -2rem;
       width: 60%;
       aspect-ratio: 4/3;
       background: url('https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=500&auto=format&fit=crop&q=80') center/cover;
       filter: grayscale(20%);
       border: 4px solid var(--black);
     }
+
     .how-accent-bar {
       position: absolute;
-      top: -1rem; left: -1rem;
-      width: 40%; height: 8px;
+      top: -1rem;
+      left: -1rem;
+      width: 40%;
+      height: 8px;
       background: var(--accent);
     }
-    .steps { margin-top: 3rem; display: flex; flex-direction: column; gap: 0; }
+
+    .steps {
+      margin-top: 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
     .step {
-      display: flex; gap: 2rem;
+      display: flex;
+      gap: 2rem;
       padding: 2rem 0;
       border-bottom: 1px solid var(--border);
       position: relative;
       transition: padding-left 0.3s;
       cursor: none;
     }
-    .step:hover { padding-left: 1rem; }
-    .step:hover .step-num { color: var(--accent); }
-    .step:first-child { border-top: 1px solid var(--border); }
+
+    .step:hover {
+      padding-left: 1rem;
+    }
+
+    .step:hover .step-num {
+      color: var(--accent);
+    }
+
+    .step:first-child {
+      border-top: 1px solid var(--border);
+    }
+
     .step-num {
       font-family: var(--font-display);
       font-size: 3rem;
@@ -456,7 +623,11 @@
       width: 60px;
       transition: color 0.3s;
     }
-    .step-content { flex: 1; }
+
+    .step-content {
+      flex: 1;
+    }
+
     .step-title {
       font-family: var(--font-cond);
       font-size: 1.2rem;
@@ -465,22 +636,32 @@
       text-transform: uppercase;
       margin-bottom: 0.5rem;
     }
-    .step-desc { font-size: 0.85rem; color: var(--off-white); line-height: 1.7; }
+
+    .step-desc {
+      font-size: 0.85rem;
+      color: var(--off-white);
+      line-height: 1.7;
+    }
 
     /* ── SECTION 5: TRAINERS ── */
     #trainers {
       padding: 7rem 3rem;
       background: var(--black);
-      position: relative; overflow: hidden;
+      position: relative;
+      overflow: hidden;
     }
+
     #trainers::before {
       content: 'TEAM';
-      position: absolute; top: 2rem; left: -1rem;
+      position: absolute;
+      top: 2rem;
+      left: -1rem;
       font-family: var(--font-display);
       font-size: 14rem;
       color: var(--dim);
       pointer-events: none;
     }
+
     .trainers-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -488,6 +669,7 @@
       background: var(--border);
       margin-top: 4rem;
     }
+
     .trainer-card {
       background: var(--charcoal);
       position: relative;
@@ -495,27 +677,40 @@
       cursor: none;
       aspect-ratio: 3/4;
     }
+
     .trainer-img {
-      width: 100%; height: 100%;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
       filter: grayscale(40%) contrast(1.1);
       transition: filter 0.4s, transform 0.5s;
     }
+
     .trainer-card:hover .trainer-img {
       filter: grayscale(0%) contrast(1.0);
       transform: scale(1.04);
     }
+
     .trainer-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(10,10,10,0.95) 0%, transparent 50%);
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10, 10, 10, 0.95) 0%, transparent 50%);
     }
+
     .trainer-info {
-      position: absolute; bottom: 0; left: 0; right: 0;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
       padding: 2rem;
       transform: translateY(60px);
-      transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .trainer-card:hover .trainer-info { transform: translateY(0); }
+
+    .trainer-card:hover .trainer-info {
+      transform: translateY(0);
+    }
+
     .trainer-name {
       font-family: var(--font-cond);
       font-size: 1.4rem;
@@ -523,6 +718,7 @@
       letter-spacing: 0.05em;
       text-transform: uppercase;
     }
+
     .trainer-role {
       font-family: var(--font-cond);
       font-size: 0.75rem;
@@ -531,6 +727,7 @@
       color: var(--accent);
       margin-top: 0.2rem;
     }
+
     .trainer-bio {
       font-size: 0.8rem;
       color: var(--off-white);
@@ -539,33 +736,66 @@
       opacity: 0;
       transition: opacity 0.4s 0.1s;
     }
-    .trainer-card:hover .trainer-bio { opacity: 1; }
-    .trainer-socials {
-      display: flex; gap: 0.8rem; margin-top: 1rem;
-      opacity: 0; transition: opacity 0.4s 0.15s;
+
+    .trainer-card:hover .trainer-bio {
+      opacity: 1;
     }
-    .trainer-card:hover .trainer-socials { opacity: 1; }
+
+    .trainer-socials {
+      display: flex;
+      gap: 0.8rem;
+      margin-top: 1rem;
+      opacity: 0;
+      transition: opacity 0.4s 0.15s;
+    }
+
+    .trainer-card:hover .trainer-socials {
+      opacity: 1;
+    }
+
     .t-soc {
-      width: 30px; height: 30px;
-      border: 1px solid rgba(240,237,232,0.3);
-      display: flex; align-items: center; justify-content: center;
+      width: 30px;
+      height: 30px;
+      border: 1px solid rgba(240, 237, 232, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: 0.75rem;
       color: var(--white);
       transition: background 0.2s, border-color 0.2s;
       text-decoration: none;
       cursor: none;
     }
-    .t-soc:hover { background: var(--accent); border-color: var(--accent); color: var(--black); }
+
+    .t-soc:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--black);
+    }
 
     /* Placeholder trainer images using CSS gradients */
-    .t1 { background: linear-gradient(145deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); }
-    .t2 { background: linear-gradient(145deg, #1a0a0a 0%, #3d0000 50%, #5c0a00 100%); }
-    .t3 { background: linear-gradient(145deg, #0a1a0a 0%, #003d00 50%, #005c0a 100%); }
-    .t4 { background: linear-gradient(145deg, #1a1500 0%, #3d3200 50%, #5c4a00 100%); }
+    .t1 {
+      background: linear-gradient(145deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    }
+
+    .t2 {
+      background: linear-gradient(145deg, #1a0a0a 0%, #3d0000 50%, #5c0a00 100%);
+    }
+
+    .t3 {
+      background: linear-gradient(145deg, #0a1a0a 0%, #003d00 50%, #005c0a 100%);
+    }
+
+    .t4 {
+      background: linear-gradient(145deg, #1a1500 0%, #3d3200 50%, #5c4a00 100%);
+    }
 
     .trainer-placeholder {
-      width: 100%; height: 100%;
-      display: flex; align-items: center; justify-content: center;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: 5rem;
       filter: grayscale(30%);
     }
@@ -577,29 +807,55 @@
       border-top: 1px solid var(--border);
       overflow: hidden;
     }
+
     .testi-track-wrap {
       margin-top: 4rem;
       overflow: hidden;
       position: relative;
     }
-    .testi-track-wrap::before, .testi-track-wrap::after {
+
+    .testi-track-wrap::before,
+    .testi-track-wrap::after {
       content: '';
-      position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 120px;
+      z-index: 2;
       pointer-events: none;
     }
-    .testi-track-wrap::before { left: 0; background: linear-gradient(to right, var(--charcoal), transparent); }
-    .testi-track-wrap::after { right: 0; background: linear-gradient(to left, var(--charcoal), transparent); }
+
+    .testi-track-wrap::before {
+      left: 0;
+      background: linear-gradient(to right, var(--charcoal), transparent);
+    }
+
+    .testi-track-wrap::after {
+      right: 0;
+      background: linear-gradient(to left, var(--charcoal), transparent);
+    }
+
     .testi-track {
       display: flex;
       gap: 1.5rem;
       animation: scrollTrack 30s linear infinite;
       width: max-content;
     }
-    .testi-track:hover { animation-play-state: paused; }
-    @keyframes scrollTrack {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+
+    .testi-track:hover {
+      animation-play-state: paused;
     }
+
+    @keyframes scrollTrack {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
     .testi-card {
       background: var(--black);
       border: 1px solid var(--border);
@@ -610,13 +866,18 @@
       cursor: none;
       transition: border-color 0.3s;
     }
-    .testi-card:hover { border-color: var(--accent); }
+
+    .testi-card:hover {
+      border-color: var(--accent);
+    }
+
     .stars {
       color: var(--accent);
       font-size: 0.9rem;
       letter-spacing: 0.1em;
       margin-bottom: 1.2rem;
     }
+
     .testi-quote {
       font-size: 0.95rem;
       color: var(--off-white);
@@ -624,18 +885,37 @@
       font-style: italic;
       margin-bottom: 2rem;
     }
-    .testi-quote::before { content: '\201C'; font-size: 2rem; color: var(--accent); line-height: 0; vertical-align: -0.5em; margin-right: 0.2rem; }
-    .testi-author { display: flex; align-items: center; gap: 1rem; }
+
+    .testi-quote::before {
+      content: '\201C';
+      font-size: 2rem;
+      color: var(--accent);
+      line-height: 0;
+      vertical-align: -0.5em;
+      margin-right: 0.2rem;
+    }
+
+    .testi-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
     .testi-avatar {
-      width: 46px; height: 46px; border-radius: 50%;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
       background: var(--steel);
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-family: var(--font-display);
       font-size: 1.2rem;
       color: var(--accent);
       flex-shrink: 0;
       border: 2px solid var(--border);
     }
+
     .testi-name {
       font-family: var(--font-cond);
       font-size: 1rem;
@@ -643,19 +923,24 @@
       letter-spacing: 0.05em;
       text-transform: uppercase;
     }
+
     .testi-meta {
       font-size: 0.75rem;
       color: #555;
       font-family: var(--font-cond);
       letter-spacing: 0.1em;
     }
+
     .testi-result {
-      position: absolute; top: 2.5rem; right: 2.5rem;
+      position: absolute;
+      top: 2.5rem;
+      right: 2.5rem;
       font-family: var(--font-display);
       font-size: 2.5rem;
       color: var(--accent);
       line-height: 1;
     }
+
     .testi-result-lbl {
       font-family: var(--font-cond);
       font-size: 0.65rem;
@@ -674,8 +959,12 @@
       position: relative;
       overflow: hidden;
     }
+
     .cta-bg-text {
-      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       font-family: var(--font-display);
       font-size: clamp(8rem, 18vw, 20rem);
       color: var(--dim);
@@ -683,11 +972,15 @@
       pointer-events: none;
       line-height: 1;
     }
+
     .cta-inner {
-      position: relative; z-index: 2;
-      max-width: 700px; margin: 0 auto;
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+      margin: 0 auto;
       text-align: center;
     }
+
     .cta-eyebrow {
       font-family: var(--font-cond);
       font-size: 0.8rem;
@@ -695,16 +988,32 @@
       text-transform: uppercase;
       color: var(--accent);
       margin-bottom: 1.5rem;
-      display: inline-flex; align-items: center; gap: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
     }
-    .cta-eyebrow::before, .cta-eyebrow::after { content: ''; display: block; width: 40px; height: 1px; background: var(--accent); }
+
+    .cta-eyebrow::before,
+    .cta-eyebrow::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--accent);
+    }
+
     .cta-title {
       font-family: var(--font-display);
       font-size: clamp(4rem, 7vw, 8rem);
       line-height: 0.95;
       margin-bottom: 1.5rem;
     }
-    .cta-title .outline { -webkit-text-stroke: 1px var(--white); color: transparent; }
+
+    .cta-title .outline {
+      -webkit-text-stroke: 1px var(--white);
+      color: transparent;
+    }
+
     .cta-desc {
       font-size: 1rem;
       color: var(--off-white);
@@ -712,11 +1021,15 @@
       margin-bottom: 3rem;
       font-weight: 300;
     }
+
     .cta-form {
-      display: flex; gap: 0;
-      max-width: 500px; margin: 0 auto 4rem;
+      display: flex;
+      gap: 0;
+      max-width: 500px;
+      margin: 0 auto 4rem;
       border: 1px solid var(--border);
     }
+
     .cta-form input {
       flex: 1;
       background: var(--charcoal);
@@ -727,7 +1040,11 @@
       font-size: 0.9rem;
       color: var(--white);
     }
-    .cta-form input::placeholder { color: #555; }
+
+    .cta-form input::placeholder {
+      color: #555;
+    }
+
     .cta-form button {
       font-family: var(--font-cond);
       font-size: 0.85rem;
@@ -742,23 +1059,39 @@
       white-space: nowrap;
       transition: background 0.2s;
     }
-    .cta-form button:hover { background: var(--accent2); }
+
+    .cta-form button:hover {
+      background: var(--accent2);
+    }
+
     footer {
-      display: flex; align-items: center; justify-content: space-between;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       padding-top: 3rem;
       border-top: 1px solid var(--border);
-      flex-wrap: wrap; gap: 1.5rem;
+      flex-wrap: wrap;
+      gap: 1.5rem;
     }
+
     .footer-logo {
       font-family: var(--font-display);
       font-size: 1.6rem;
       color: var(--white);
       text-decoration: none;
     }
-    .footer-logo span { color: var(--accent); }
-    .footer-links {
-      display: flex; gap: 2rem; list-style: none; flex-wrap: wrap;
+
+    .footer-logo span {
+      color: var(--accent);
     }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
     .footer-links a {
       font-family: var(--font-cond);
       font-size: 0.8rem;
@@ -768,7 +1101,11 @@
       text-decoration: none;
       transition: color 0.2s;
     }
-    .footer-links a:hover { color: var(--accent); }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
     .footer-copy {
       font-size: 0.75rem;
       color: #444;
@@ -780,560 +1117,607 @@
     .reveal {
       opacity: 0;
       transform: translateY(40px);
-      transition: opacity 0.8s cubic-bezier(0.4,0,0.2,1), transform 0.8s cubic-bezier(0.4,0,0.2,1);
+      transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     /* Counter animation */
-    .count-up { display: inline-block; }
+    .count-up {
+      display: inline-block;
+    }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 1024px) {
-      #hero { grid-template-columns: 1fr; min-height: auto; }
-      .hero-right { display: none; }
-      .hero-left { padding: 9rem 2rem 5rem; }
-      #stats { grid-template-columns: repeat(2, 1fr); }
-      .stat-item:nth-child(2)::after { display: none; }
-      .programs-grid { grid-template-columns: 1fr 1fr; }
-      .how-inner { grid-template-columns: 1fr; }
-      .how-img-block { display: none; }
-      .trainers-grid { grid-template-columns: repeat(2, 1fr); }
+      #hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .hero-right {
+        display: none;
+      }
+
+      .hero-left {
+        padding: 9rem 2rem 5rem;
+      }
+
+      .programs-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .how-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .how-img-block {
+        display: none;
+      }
+
+      .trainers-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
+
     @media (max-width: 640px) {
-      nav { padding: 1.2rem 1.5rem; }
-      .nav-links { display: none; }
-      #stats { grid-template-columns: 1fr 1fr; }
-      .programs-grid { grid-template-columns: 1fr; }
-      .trainers-grid { grid-template-columns: 1fr 1fr; }
-      #programs, #how, #trainers, #testimonials, #cta { padding: 5rem 1.5rem; }
+      nav {
+        padding: 1.2rem 1.5rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .programs-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .trainers-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      #programs,
+      #how,
+      #trainers,
+      #testimonials,
+      #cta {
+        padding: 5rem 1.5rem;
+      }
     }
   </style>
 </head>
+
 <body>
 
-<!-- Custom cursor -->
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
 
-<!-- ════════════════════════════════════════
+  <!-- ════════════════════════════════════════
      NAV
 ════════════════════════════════════════ -->
-<nav id="mainNav">
-  <a href="#" class="nav-logo">IRON<span>FORM</span></a>
-  <ul class="nav-links">
-    <li><a href="#programs">Programs</a></li>
-    <li><a href="#how">Process</a></li>
-    <li><a href="#trainers">Trainers</a></li>
-    <li><a href="#testimonials">Results</a></li>
-  </ul>
-  <button class="nav-cta" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Start Free Trial</button>
-</nav>
+  <nav id="mainNav">
+    <a href="#" class="nav-logo">IRON<span>FORM</span></a>
+    <ul class="nav-links">
+      <li><a href="#programs">Programs</a></li>
+      <li><a href="#how">Process</a></li>
+      <li><a href="#trainers">Trainers</a></li>
+      <li><a href="#testimonials">Results</a></li>
+    </ul>
+    <button class="nav-cta" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Start Free
+      Trial</button>
+  </nav>
 
-<!-- ════════════════════════════════════════
+  <!-- ════════════════════════════════════════
      SECTION 1 — HERO
 ════════════════════════════════════════ -->
-<section id="hero">
-  <div class="hero-left">
-    <div class="hero-tag">Est. 2016 — Elite Performance</div>
-    <h1 class="hero-title">
-      FORGE<br>
-      YOUR<br>
-      <span class="orange">LIMIT</span><span class="stroke">LESS</span>
-    </h1>
-    <p class="hero-subtitle">
-      Precision training. Expert coaching. Transformative results.
-      No gimmicks — just science-backed methods that forge champions.
-    </p>
-    <div class="hero-btns">
-      <a href="#programs" class="btn-primary">Explore Programs</a>
-      <a href="#how" class="btn-ghost">See How It Works</a>
+  <section id="hero">
+    <div class="hero-left">
+      <div class="hero-tag">Est. 2016 — Elite Performance</div>
+      <h1 class="hero-title">
+        FORGE<br>
+        YOUR<br>
+        <span class="orange">LIMIT</span><span class="stroke">LESS</span>
+      </h1>
+      <p class="hero-subtitle">
+        Precision training. Expert coaching. Transformative results.
+        No gimmicks — just science-backed methods that forge champions.
+      </p>
+      <div class="hero-btns">
+        <a href="#programs" class="btn-primary">Explore Programs</a>
+        <a href="#how" class="btn-ghost">See How It Works</a>
+      </div>
     </div>
-  </div>
-  <div class="hero-right">
-    <div class="hero-img-wrap"></div>
-    <div class="hero-img-overlay"></div>
-    <div class="hero-stat-badge">
-      <span class="num">97<span style="color:var(--accent);font-size:2rem">%</span></span>
-      <span class="lbl">Client Success<br>Rate</span>
+    <div class="hero-right">
+      <div class="hero-img-wrap"></div>
+      <div class="hero-img-overlay"></div>
+      <div class="hero-stat-badge">
+        <span class="num">97<span style="color:var(--accent);font-size:2rem">%</span></span>
+        <span class="lbl">Client Success<br>Rate</span>
+      </div>
     </div>
-  </div>
-  <div class="hero-scroll-hint">Scroll</div>
-</section>
+    <div class="hero-scroll-hint">Scroll</div>
+  </section>
 
-<!-- ════════════════════════════════════════
-     SECTION 2 — STATS
-════════════════════════════════════════ -->
-<section id="stats">
-  <div class="stat-item reveal">
-    <div class="stat-num"><span class="count-up" data-target="12">0</span><span>K+</span></div>
-    <div class="stat-label">Athletes Transformed</div>
-    <div class="stat-desc">Since our founding</div>
-  </div>
-  <div class="stat-item reveal" style="transition-delay:0.1s">
-    <div class="stat-num"><span class="count-up" data-target="48">0</span><span></span></div>
-    <div class="stat-label">Expert Trainers</div>
-    <div class="stat-desc">Certified & world-class</div>
-  </div>
-  <div class="stat-item reveal" style="transition-delay:0.2s">
-    <div class="stat-num"><span class="count-up" data-target="200">0</span><span>+</span></div>
-    <div class="stat-label">Programs Available</div>
-    <div class="stat-desc">For every goal</div>
-  </div>
-  <div class="stat-item reveal" style="transition-delay:0.3s">
-    <div class="stat-num"><span class="count-up" data-target="97">0</span><span>%</span></div>
-    <div class="stat-label">Retention Rate</div>
-    <div class="stat-desc">Members who stay</div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════════
+  <!-- ════════════════════════════════════════
      SECTION 3 — PROGRAMS
 ════════════════════════════════════════ -->
-<section id="programs">
-  <div class="section-head reveal">
-    <div>
-      <div class="section-tag">What We Offer</div>
-      <h2 class="section-title">BUILT FOR<br>EVERY BODY</h2>
-    </div>
-    <a href="#cta" class="btn-ghost">View All Programs →</a>
-  </div>
-  <div class="programs-grid">
-    <div class="program-card reveal">
-      <div class="prog-num">01</div>
-      <span class="prog-tag">Most Popular</span>
-      <div class="prog-title">Strength & Power</div>
-      <p class="prog-desc">Build raw strength using progressive overload principles. Barbell-centric training designed to add pounds to your lifts every week.</p>
-      <div class="prog-meta">
-        <div><span>⚡</span>4×/week</div>
-        <div><span>⏱</span>60–75 min</div>
-        <div><span>📈</span>All levels</div>
+  <section id="programs">
+    <div class="section-head reveal">
+      <div>
+        <div class="section-tag">What We Offer</div>
+        <h2 class="section-title">BUILT FOR<br>EVERY BODY</h2>
       </div>
-      <div class="prog-arrow">→</div>
+      <a href="#cta" class="btn-ghost">View All Programs →</a>
     </div>
-    <div class="program-card reveal" style="transition-delay:0.1s">
-      <div class="prog-num">02</div>
-      <span class="prog-tag">Fat Loss</span>
-      <div class="prog-title">Shred Protocol</div>
-      <p class="prog-desc">High-intensity metabolic conditioning fused with resistance work. Torch body fat while preserving lean muscle mass.</p>
-      <div class="prog-meta">
-        <div><span>⚡</span>5×/week</div>
-        <div><span>⏱</span>45 min</div>
-        <div><span>📈</span>Intermediate</div>
+    <div class="programs-grid">
+      <div class="program-card reveal">
+        <div class="prog-num">01</div>
+        <span class="prog-tag">Most Popular</span>
+        <div class="prog-title">Strength & Power</div>
+        <p class="prog-desc">Build raw strength using progressive overload principles. Barbell-centric training designed
+          to add pounds to your lifts every week.</p>
+        <div class="prog-meta">
+          <div><span>⚡</span>4×/week</div>
+          <div><span>⏱</span>60–75 min</div>
+          <div><span>📈</span>All levels</div>
+        </div>
+        <div class="prog-arrow">→</div>
       </div>
-      <div class="prog-arrow">→</div>
-    </div>
-    <div class="program-card reveal" style="transition-delay:0.2s">
-      <div class="prog-num">03</div>
-      <span class="prog-tag">Hypertrophy</span>
-      <div class="prog-title">Mass Builder</div>
-      <p class="prog-desc">Scientifically programmed muscle growth protocol. Volume-driven, isolation-rich training to sculpt your ideal physique.</p>
-      <div class="prog-meta">
-        <div><span>⚡</span>5×/week</div>
-        <div><span>⏱</span>90 min</div>
-        <div><span>📈</span>Advanced</div>
+      <div class="program-card reveal" style="transition-delay:0.1s">
+        <div class="prog-num">02</div>
+        <span class="prog-tag">Fat Loss</span>
+        <div class="prog-title">Shred Protocol</div>
+        <p class="prog-desc">High-intensity metabolic conditioning fused with resistance work. Torch body fat while
+          preserving lean muscle mass.</p>
+        <div class="prog-meta">
+          <div><span>⚡</span>5×/week</div>
+          <div><span>⏱</span>45 min</div>
+          <div><span>📈</span>Intermediate</div>
+        </div>
+        <div class="prog-arrow">→</div>
       </div>
-      <div class="prog-arrow">→</div>
-    </div>
-    <div class="program-card reveal" style="transition-delay:0.15s">
-      <div class="prog-num">04</div>
-      <span class="prog-tag">Cardio</span>
-      <div class="prog-title">Endurance Elite</div>
-      <p class="prog-desc">Structured aerobic conditioning for peak cardiovascular output. Train your engine for events, races, or everyday vitality.</p>
-      <div class="prog-meta">
-        <div><span>⚡</span>3×/week</div>
-        <div><span>⏱</span>60 min</div>
-        <div><span>📈</span>All levels</div>
+      <div class="program-card reveal" style="transition-delay:0.2s">
+        <div class="prog-num">03</div>
+        <span class="prog-tag">Hypertrophy</span>
+        <div class="prog-title">Mass Builder</div>
+        <p class="prog-desc">Scientifically programmed muscle growth protocol. Volume-driven, isolation-rich training to
+          sculpt your ideal physique.</p>
+        <div class="prog-meta">
+          <div><span>⚡</span>5×/week</div>
+          <div><span>⏱</span>90 min</div>
+          <div><span>📈</span>Advanced</div>
+        </div>
+        <div class="prog-arrow">→</div>
       </div>
-      <div class="prog-arrow">→</div>
-    </div>
-    <div class="program-card reveal" style="transition-delay:0.25s">
-      <div class="prog-num">05</div>
-      <span class="prog-tag">Mobility</span>
-      <div class="prog-title">Flex & Recover</div>
-      <p class="prog-desc">Deep mobility work, active recovery, and corrective exercise. Move better, hurt less, perform longer.</p>
-      <div class="prog-meta">
-        <div><span>⚡</span>3×/week</div>
-        <div><span>⏱</span>45 min</div>
-        <div><span>📈</span>Beginners</div>
+      <div class="program-card reveal" style="transition-delay:0.15s">
+        <div class="prog-num">04</div>
+        <span class="prog-tag">Cardio</span>
+        <div class="prog-title">Endurance Elite</div>
+        <p class="prog-desc">Structured aerobic conditioning for peak cardiovascular output. Train your engine for
+          events, races, or everyday vitality.</p>
+        <div class="prog-meta">
+          <div><span>⚡</span>3×/week</div>
+          <div><span>⏱</span>60 min</div>
+          <div><span>📈</span>All levels</div>
+        </div>
+        <div class="prog-arrow">→</div>
       </div>
-      <div class="prog-arrow">→</div>
-    </div>
-    <div class="program-card reveal" style="transition-delay:0.35s">
-      <div class="prog-num">06</div>
-      <span class="prog-tag">Elite</span>
-      <div class="prog-title">Athlete Mode</div>
-      <p class="prog-desc">Full-spectrum performance training for those who demand the absolute most. Periodized cycles, sport-specific drills, mental edge.</p>
-      <div class="prog-meta">
-        <div><span>⚡</span>6×/week</div>
-        <div><span>⏱</span>2 hrs</div>
-        <div><span>📈</span>Elite only</div>
+      <div class="program-card reveal" style="transition-delay:0.25s">
+        <div class="prog-num">05</div>
+        <span class="prog-tag">Mobility</span>
+        <div class="prog-title">Flex & Recover</div>
+        <p class="prog-desc">Deep mobility work, active recovery, and corrective exercise. Move better, hurt less,
+          perform longer.</p>
+        <div class="prog-meta">
+          <div><span>⚡</span>3×/week</div>
+          <div><span>⏱</span>45 min</div>
+          <div><span>📈</span>Beginners</div>
+        </div>
+        <div class="prog-arrow">→</div>
       </div>
-      <div class="prog-arrow">→</div>
+      <div class="program-card reveal" style="transition-delay:0.35s">
+        <div class="prog-num">06</div>
+        <span class="prog-tag">Elite</span>
+        <div class="prog-title">Athlete Mode</div>
+        <p class="prog-desc">Full-spectrum performance training for those who demand the absolute most. Periodized
+          cycles, sport-specific drills, mental edge.</p>
+        <div class="prog-meta">
+          <div><span>⚡</span>6×/week</div>
+          <div><span>⏱</span>2 hrs</div>
+          <div><span>📈</span>Elite only</div>
+        </div>
+        <div class="prog-arrow">→</div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ════════════════════════════════════════
+  <!-- ════════════════════════════════════════
      SECTION 4 — HOW IT WORKS
 ════════════════════════════════════════ -->
-<section id="how">
-  <div class="how-inner">
-    <div class="how-img-block reveal">
-      <div class="how-accent-bar"></div>
-      <div class="how-img"></div>
-      <div class="how-img-accent"></div>
-    </div>
-    <div>
-      <div class="section-tag reveal">The Process</div>
-      <h2 class="section-title reveal">THE PATH TO<br>YOUR BEST SELF</h2>
-      <p style="font-size:.9rem;color:var(--off-white);line-height:1.8;margin-top:1rem;" class="reveal">
-        Every transformation starts with a plan. We've refined our process across thousands of athletes to deliver results with precision.
-      </p>
-      <div class="steps">
-        <div class="step reveal">
-          <div class="step-num">01</div>
-          <div class="step-content">
-            <div class="step-title">Initial Assessment</div>
-            <p class="step-desc">Comprehensive body composition scan, movement screening, and deep dive into your history and goals with a certified coach.</p>
+  <section id="how">
+    <div class="how-inner">
+      <div class="how-img-block reveal">
+        <div class="how-accent-bar"></div>
+        <div class="how-img"></div>
+        <div class="how-img-accent"></div>
+      </div>
+      <div>
+        <div class="section-tag reveal">The Process</div>
+        <h2 class="section-title reveal">THE PATH TO<br>YOUR BEST SELF</h2>
+        <p style="font-size:.9rem;color:var(--off-white);line-height:1.8;margin-top:1rem;" class="reveal">
+          Every transformation starts with a plan. We've refined our process across thousands of athletes to deliver
+          results with precision.
+        </p>
+        <div class="steps">
+          <div class="step reveal">
+            <div class="step-num">01</div>
+            <div class="step-content">
+              <div class="step-title">Initial Assessment</div>
+              <p class="step-desc">Comprehensive body composition scan, movement screening, and deep dive into your
+                history and goals with a certified coach.</p>
+            </div>
           </div>
-        </div>
-        <div class="step reveal" style="transition-delay:0.1s">
-          <div class="step-num">02</div>
-          <div class="step-content">
-            <div class="step-title">Custom Program Design</div>
-            <p class="step-desc">We build a periodized training plan and nutrition framework engineered specifically for your body, schedule, and ambitions.</p>
+          <div class="step reveal" style="transition-delay:0.1s">
+            <div class="step-num">02</div>
+            <div class="step-content">
+              <div class="step-title">Custom Program Design</div>
+              <p class="step-desc">We build a periodized training plan and nutrition framework engineered specifically
+                for your body, schedule, and ambitions.</p>
+            </div>
           </div>
-        </div>
-        <div class="step reveal" style="transition-delay:0.2s">
-          <div class="step-num">03</div>
-          <div class="step-content">
-            <div class="step-title">Execute & Adapt</div>
-            <p class="step-desc">Train with guided coaching support. Weekly check-ins ensure we adapt as you progress — no plateaus, ever.</p>
+          <div class="step reveal" style="transition-delay:0.2s">
+            <div class="step-num">03</div>
+            <div class="step-content">
+              <div class="step-title">Execute & Adapt</div>
+              <p class="step-desc">Train with guided coaching support. Weekly check-ins ensure we adapt as you progress
+                — no plateaus, ever.</p>
+            </div>
           </div>
-        </div>
-        <div class="step reveal" style="transition-delay:0.3s">
-          <div class="step-num">04</div>
-          <div class="step-content">
-            <div class="step-title">Measure & Celebrate</div>
-            <p class="step-desc">Monthly reassessments track every metric. See the data, feel the difference, and set the next goal higher.</p>
+          <div class="step reveal" style="transition-delay:0.3s">
+            <div class="step-num">04</div>
+            <div class="step-content">
+              <div class="step-title">Measure & Celebrate</div>
+              <p class="step-desc">Monthly reassessments track every metric. See the data, feel the difference, and set
+                the next goal higher.</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ════════════════════════════════════════
+  <!-- ════════════════════════════════════════
      SECTION 5 — TRAINERS
 ════════════════════════════════════════ -->
-<section id="trainers">
-  <div class="reveal">
-    <div class="section-tag">The Coaches</div>
-    <h2 class="section-title">WORLD-CLASS<br>EXPERTISE</h2>
-  </div>
-  <div class="trainers-grid">
-    <div class="trainer-card reveal">
-      <div class="trainer-placeholder t1">💪</div>
-      <div class="trainer-overlay"></div>
-      <div class="trainer-info">
-        <div class="trainer-name">Marcus Reid</div>
-        <div class="trainer-role">Strength & Powerlifting</div>
-        <p class="trainer-bio">Former national champion. 14 years elite coaching experience. Specialises in raw strength gains.</p>
-        <div class="trainer-socials">
-          <a class="t-soc" href="#">in</a>
-          <a class="t-soc" href="#">ig</a>
+  <section id="trainers">
+    <div class="reveal">
+      <div class="section-tag">The Coaches</div>
+      <h2 class="section-title">WORLD-CLASS<br>EXPERTISE</h2>
+    </div>
+    <div class="trainers-grid">
+      <div class="trainer-card reveal">
+        <div class="trainer-placeholder t1">💪</div>
+        <div class="trainer-overlay"></div>
+        <div class="trainer-info">
+          <div class="trainer-name">Marcus Reid</div>
+          <div class="trainer-role">Strength & Powerlifting</div>
+          <p class="trainer-bio">Former national champion. 14 years elite coaching experience. Specialises in raw
+            strength gains.</p>
+          <div class="trainer-socials">
+            <a class="t-soc" href="#">in</a>
+            <a class="t-soc" href="#">ig</a>
+          </div>
+        </div>
+      </div>
+      <div class="trainer-card reveal" style="transition-delay:0.1s">
+        <div class="trainer-placeholder t2">🔥</div>
+        <div class="trainer-overlay"></div>
+        <div class="trainer-info">
+          <div class="trainer-name">Sofia Vega</div>
+          <div class="trainer-role">HIIT & Metabolic</div>
+          <p class="trainer-bio">NSCA-CSCS certified. Creator of the Shred Protocol program. 500+ transformations.</p>
+          <div class="trainer-socials">
+            <a class="t-soc" href="#">in</a>
+            <a class="t-soc" href="#">ig</a>
+          </div>
+        </div>
+      </div>
+      <div class="trainer-card reveal" style="transition-delay:0.2s">
+        <div class="trainer-placeholder t3">🏆</div>
+        <div class="trainer-overlay"></div>
+        <div class="trainer-info">
+          <div class="trainer-name">Jason Park</div>
+          <div class="trainer-role">Athletic Performance</div>
+          <p class="trainer-bio">Ex-NFL strength coach. Trains professional athletes and serious amateurs who demand
+            elite results.</p>
+          <div class="trainer-socials">
+            <a class="t-soc" href="#">in</a>
+            <a class="t-soc" href="#">ig</a>
+          </div>
+        </div>
+      </div>
+      <div class="trainer-card reveal" style="transition-delay:0.3s">
+        <div class="trainer-placeholder t4">🧘</div>
+        <div class="trainer-overlay"></div>
+        <div class="trainer-info">
+          <div class="trainer-name">Aisha Nkosi</div>
+          <div class="trainer-role">Mobility & Recovery</div>
+          <p class="trainer-bio">PhD in kinesiology. Specialises in movement optimization, injury prevention, and
+            longevity.</p>
+          <div class="trainer-socials">
+            <a class="t-soc" href="#">in</a>
+            <a class="t-soc" href="#">ig</a>
+          </div>
         </div>
       </div>
     </div>
-    <div class="trainer-card reveal" style="transition-delay:0.1s">
-      <div class="trainer-placeholder t2">🔥</div>
-      <div class="trainer-overlay"></div>
-      <div class="trainer-info">
-        <div class="trainer-name">Sofia Vega</div>
-        <div class="trainer-role">HIIT & Metabolic</div>
-        <p class="trainer-bio">NSCA-CSCS certified. Creator of the Shred Protocol program. 500+ transformations.</p>
-        <div class="trainer-socials">
-          <a class="t-soc" href="#">in</a>
-          <a class="t-soc" href="#">ig</a>
-        </div>
-      </div>
-    </div>
-    <div class="trainer-card reveal" style="transition-delay:0.2s">
-      <div class="trainer-placeholder t3">🏆</div>
-      <div class="trainer-overlay"></div>
-      <div class="trainer-info">
-        <div class="trainer-name">Jason Park</div>
-        <div class="trainer-role">Athletic Performance</div>
-        <p class="trainer-bio">Ex-NFL strength coach. Trains professional athletes and serious amateurs who demand elite results.</p>
-        <div class="trainer-socials">
-          <a class="t-soc" href="#">in</a>
-          <a class="t-soc" href="#">ig</a>
-        </div>
-      </div>
-    </div>
-    <div class="trainer-card reveal" style="transition-delay:0.3s">
-      <div class="trainer-placeholder t4">🧘</div>
-      <div class="trainer-overlay"></div>
-      <div class="trainer-info">
-        <div class="trainer-name">Aisha Nkosi</div>
-        <div class="trainer-role">Mobility & Recovery</div>
-        <p class="trainer-bio">PhD in kinesiology. Specialises in movement optimization, injury prevention, and longevity.</p>
-        <div class="trainer-socials">
-          <a class="t-soc" href="#">in</a>
-          <a class="t-soc" href="#">ig</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ════════════════════════════════════════
+  <!-- ════════════════════════════════════════
      SECTION 6 — TESTIMONIALS
 ════════════════════════════════════════ -->
-<section id="testimonials">
-  <div class="reveal">
-    <div class="section-tag">Real Results</div>
-    <h2 class="section-title">THEIR STORIES.<br>YOUR FUTURE.</h2>
-  </div>
-  <div class="testi-track-wrap reveal">
-    <div class="testi-track" id="testiTrack">
-      <!-- Cards duplicated for infinite scroll -->
-      <div class="testi-card">
-        <div class="stars">★★★★★</div>
-        <div class="testi-result">−28<span class="testi-result-lbl">lbs<br>in 12wk</span></div>
-        <p class="testi-quote">IRONFORM completely rewired how I think about training. The programming is surgical, the coaches actually give a damn, and I've hit PRs I never thought possible at 38.</p>
-        <div class="testi-author">
-          <div class="testi-avatar">DK</div>
-          <div>
-            <div class="testi-name">Daniel Kowalski</div>
-            <div class="testi-meta">Shred Protocol · 14 months</div>
+  <section id="testimonials">
+    <div class="reveal">
+      <div class="section-tag">Real Results</div>
+      <h2 class="section-title">THEIR STORIES.<br>YOUR FUTURE.</h2>
+    </div>
+    <div class="testi-track-wrap reveal">
+      <div class="testi-track" id="testiTrack">
+        <!-- Cards duplicated for infinite scroll -->
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <div class="testi-result">−28<span class="testi-result-lbl">lbs<br>in 12wk</span></div>
+          <p class="testi-quote">IRONFORM completely rewired how I think about training. The programming is surgical,
+            the coaches actually give a damn, and I've hit PRs I never thought possible at 38.</p>
+          <div class="testi-author">
+            <div class="testi-avatar">DK</div>
+            <div>
+              <div class="testi-name">Daniel Kowalski</div>
+              <div class="testi-meta">Shred Protocol · 14 months</div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="testi-card">
-        <div class="stars">★★★★★</div>
-        <div class="testi-result">+40<span class="testi-result-lbl">lbs<br>on squat</span></div>
-        <p class="testi-quote">Signed up skeptical. Left a believer. In 8 weeks I added 40 lbs to my squat and finally understand what real progressive overload feels like.</p>
-        <div class="testi-author">
-          <div class="testi-avatar">ML</div>
-          <div>
-            <div class="testi-name">Maya Lindqvist</div>
-            <div class="testi-meta">Strength & Power · 8 months</div>
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <div class="testi-result">+40<span class="testi-result-lbl">lbs<br>on squat</span></div>
+          <p class="testi-quote">Signed up skeptical. Left a believer. In 8 weeks I added 40 lbs to my squat and finally
+            understand what real progressive overload feels like.</p>
+          <div class="testi-author">
+            <div class="testi-avatar">ML</div>
+            <div>
+              <div class="testi-name">Maya Lindqvist</div>
+              <div class="testi-meta">Strength & Power · 8 months</div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="testi-card">
-        <div class="stars">★★★★★</div>
-        <div class="testi-result">−18%<span class="testi-result-lbl">body<br>fat</span></div>
-        <p class="testi-quote">After two kids I thought my athletic days were behind me. Sofia's coaching proved me catastrophically wrong. I'm stronger now than I was at 25.</p>
-        <div class="testi-author">
-          <div class="testi-avatar">RP</div>
-          <div>
-            <div class="testi-name">Rachel Patel</div>
-            <div class="testi-meta">Shred Protocol · 6 months</div>
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <div class="testi-result">−18%<span class="testi-result-lbl">body<br>fat</span></div>
+          <p class="testi-quote">After two kids I thought my athletic days were behind me. Sofia's coaching proved me
+            catastrophically wrong. I'm stronger now than I was at 25.</p>
+          <div class="testi-author">
+            <div class="testi-avatar">RP</div>
+            <div>
+              <div class="testi-name">Rachel Patel</div>
+              <div class="testi-meta">Shred Protocol · 6 months</div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="testi-card">
-        <div class="stars">★★★★★</div>
-        <div class="testi-result">+22<span class="testi-result-lbl">lbs<br>muscle</span></div>
-        <p class="testi-quote">I've trained with 5 different gyms. Nothing compares to the attention to detail here. The programming adapts weekly and the results speak for themselves.</p>
-        <div class="testi-author">
-          <div class="testi-avatar">TC</div>
-          <div>
-            <div class="testi-name">Tyler Chen</div>
-            <div class="testi-meta">Mass Builder · 10 months</div>
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <div class="testi-result">+22<span class="testi-result-lbl">lbs<br>muscle</span></div>
+          <p class="testi-quote">I've trained with 5 different gyms. Nothing compares to the attention to detail here.
+            The programming adapts weekly and the results speak for themselves.</p>
+          <div class="testi-author">
+            <div class="testi-avatar">TC</div>
+            <div>
+              <div class="testi-name">Tyler Chen</div>
+              <div class="testi-meta">Mass Builder · 10 months</div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="testi-card">
-        <div class="stars">★★★★★</div>
-        <div class="testi-result">1st<span class="testi-result-lbl">place<br>local 5k</span></div>
-        <p class="testi-quote">Jason's performance programming helped me place first in my age group at a local race. Never thought I'd be competitive but here we are.</p>
-        <div class="testi-author">
-          <div class="testi-avatar">AN</div>
-          <div>
-            <div class="testi-name">Alex Nguyen</div>
-            <div class="testi-meta">Endurance Elite · 5 months</div>
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <div class="testi-result">1st<span class="testi-result-lbl">place<br>local 5k</span></div>
+          <p class="testi-quote">Jason's performance programming helped me place first in my age group at a local race.
+            Never thought I'd be competitive but here we are.</p>
+          <div class="testi-author">
+            <div class="testi-avatar">AN</div>
+            <div>
+              <div class="testi-name">Alex Nguyen</div>
+              <div class="testi-meta">Endurance Elite · 5 months</div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="testi-card">
-        <div class="stars">★★★★★</div>
-        <div class="testi-result">0<span class="testi-result-lbl">pain<br>in knees</span></div>
-        <p class="testi-quote">Chronic knee pain that 3 physios couldn't fix — gone in 6 weeks with Aisha's mobility protocol. I now run 20k a week pain-free. Life-changing.</p>
-        <div class="testi-author">
-          <div class="testi-avatar">SW</div>
-          <div>
-            <div class="testi-name">Sandra Wu</div>
-            <div class="testi-meta">Flex & Recover · 3 months</div>
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <div class="testi-result">0<span class="testi-result-lbl">pain<br>in knees</span></div>
+          <p class="testi-quote">Chronic knee pain that 3 physios couldn't fix — gone in 6 weeks with Aisha's mobility
+            protocol. I now run 20k a week pain-free. Life-changing.</p>
+          <div class="testi-author">
+            <div class="testi-avatar">SW</div>
+            <div>
+              <div class="testi-name">Sandra Wu</div>
+              <div class="testi-meta">Flex & Recover · 3 months</div>
+            </div>
           </div>
         </div>
-      </div>
-      <!-- Duplicate set for seamless loop -->
-      <div class="testi-card">
-        <div class="stars">★★★★★</div>
-        <div class="testi-result">−28<span class="testi-result-lbl">lbs<br>in 12wk</span></div>
-        <p class="testi-quote">IRONFORM completely rewired how I think about training. The programming is surgical, the coaches actually give a damn, and I've hit PRs I never thought possible at 38.</p>
-        <div class="testi-author">
-          <div class="testi-avatar">DK</div>
-          <div>
-            <div class="testi-name">Daniel Kowalski</div>
-            <div class="testi-meta">Shred Protocol · 14 months</div>
+        <!-- Duplicate set for seamless loop -->
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <div class="testi-result">−28<span class="testi-result-lbl">lbs<br>in 12wk</span></div>
+          <p class="testi-quote">IRONFORM completely rewired how I think about training. The programming is surgical,
+            the coaches actually give a damn, and I've hit PRs I never thought possible at 38.</p>
+          <div class="testi-author">
+            <div class="testi-avatar">DK</div>
+            <div>
+              <div class="testi-name">Daniel Kowalski</div>
+              <div class="testi-meta">Shred Protocol · 14 months</div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="testi-card">
-        <div class="stars">★★★★★</div>
-        <div class="testi-result">+40<span class="testi-result-lbl">lbs<br>on squat</span></div>
-        <p class="testi-quote">Signed up skeptical. Left a believer. In 8 weeks I added 40 lbs to my squat and finally understand what real progressive overload feels like.</p>
-        <div class="testi-author">
-          <div class="testi-avatar">ML</div>
-          <div>
-            <div class="testi-name">Maya Lindqvist</div>
-            <div class="testi-meta">Strength & Power · 8 months</div>
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <div class="testi-result">+40<span class="testi-result-lbl">lbs<br>on squat</span></div>
+          <p class="testi-quote">Signed up skeptical. Left a believer. In 8 weeks I added 40 lbs to my squat and finally
+            understand what real progressive overload feels like.</p>
+          <div class="testi-author">
+            <div class="testi-avatar">ML</div>
+            <div>
+              <div class="testi-name">Maya Lindqvist</div>
+              <div class="testi-meta">Strength & Power · 8 months</div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="testi-card">
-        <div class="stars">★★★★★</div>
-        <div class="testi-result">−18%<span class="testi-result-lbl">body<br>fat</span></div>
-        <p class="testi-quote">After two kids I thought my athletic days were behind me. Sofia's coaching proved me catastrophically wrong. I'm stronger now than I was at 25.</p>
-        <div class="testi-author">
-          <div class="testi-avatar">RP</div>
-          <div>
-            <div class="testi-name">Rachel Patel</div>
-            <div class="testi-meta">Shred Protocol · 6 months</div>
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <div class="testi-result">−18%<span class="testi-result-lbl">body<br>fat</span></div>
+          <p class="testi-quote">After two kids I thought my athletic days were behind me. Sofia's coaching proved me
+            catastrophically wrong. I'm stronger now than I was at 25.</p>
+          <div class="testi-author">
+            <div class="testi-avatar">RP</div>
+            <div>
+              <div class="testi-name">Rachel Patel</div>
+              <div class="testi-meta">Shred Protocol · 6 months</div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="testi-card">
-        <div class="stars">★★★★★</div>
-        <div class="testi-result">+22<span class="testi-result-lbl">lbs<br>muscle</span></div>
-        <p class="testi-quote">I've trained with 5 different gyms. Nothing compares to the attention to detail here. The programming adapts weekly and the results speak for themselves.</p>
-        <div class="testi-author">
-          <div class="testi-avatar">TC</div>
-          <div>
-            <div class="testi-name">Tyler Chen</div>
-            <div class="testi-meta">Mass Builder · 10 months</div>
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <div class="testi-result">+22<span class="testi-result-lbl">lbs<br>muscle</span></div>
+          <p class="testi-quote">I've trained with 5 different gyms. Nothing compares to the attention to detail here.
+            The programming adapts weekly and the results speak for themselves.</p>
+          <div class="testi-author">
+            <div class="testi-avatar">TC</div>
+            <div>
+              <div class="testi-name">Tyler Chen</div>
+              <div class="testi-meta">Mass Builder · 10 months</div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="testi-card">
-        <div class="stars">★★★★★</div>
-        <div class="testi-result">1st<span class="testi-result-lbl">place<br>local 5k</span></div>
-        <p class="testi-quote">Jason's performance programming helped me place first in my age group at a local race. Never thought I'd be competitive but here we are.</p>
-        <div class="testi-author">
-          <div class="testi-avatar">AN</div>
-          <div>
-            <div class="testi-name">Alex Nguyen</div>
-            <div class="testi-meta">Endurance Elite · 5 months</div>
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <div class="testi-result">1st<span class="testi-result-lbl">place<br>local 5k</span></div>
+          <p class="testi-quote">Jason's performance programming helped me place first in my age group at a local race.
+            Never thought I'd be competitive but here we are.</p>
+          <div class="testi-author">
+            <div class="testi-avatar">AN</div>
+            <div>
+              <div class="testi-name">Alex Nguyen</div>
+              <div class="testi-meta">Endurance Elite · 5 months</div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="testi-card">
-        <div class="stars">★★★★★</div>
-        <div class="testi-result">0<span class="testi-result-lbl">pain<br>in knees</span></div>
-        <p class="testi-quote">Chronic knee pain that 3 physios couldn't fix — gone in 6 weeks with Aisha's mobility protocol. I now run 20k a week pain-free. Life-changing.</p>
-        <div class="testi-author">
-          <div class="testi-avatar">SW</div>
-          <div>
-            <div class="testi-name">Sandra Wu</div>
-            <div class="testi-meta">Flex & Recover · 3 months</div>
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <div class="testi-result">0<span class="testi-result-lbl">pain<br>in knees</span></div>
+          <p class="testi-quote">Chronic knee pain that 3 physios couldn't fix — gone in 6 weeks with Aisha's mobility
+            protocol. I now run 20k a week pain-free. Life-changing.</p>
+          <div class="testi-author">
+            <div class="testi-avatar">SW</div>
+            <div>
+              <div class="testi-name">Sandra Wu</div>
+              <div class="testi-meta">Flex & Recover · 3 months</div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ════════════════════════════════════════
+  <!-- ════════════════════════════════════════
      SECTION 7 — CTA + FOOTER
 ════════════════════════════════════════ -->
-<section id="cta">
-  <div class="cta-bg-text">IRONFORM</div>
-  <div class="cta-inner">
-    <div class="cta-eyebrow reveal">Start Today — Free 14-Day Trial</div>
-    <h2 class="cta-title reveal">
-      READY TO<br>
-      <span class="outline">BECOME</span><br>
-      UNSTOPPABLE?
-    </h2>
-    <p class="cta-desc reveal">
-      Join over 12,000 athletes who chose to stop settling. Drop your email and we'll pair you with the right program and coach within 24 hours.
-    </p>
-    <div class="cta-form reveal">
-      <input type="email" placeholder="Enter your email address" />
-      <button>Claim Free Trial</button>
+  <section id="cta">
+    <div class="cta-bg-text">IRONFORM</div>
+    <div class="cta-inner">
+      <div class="cta-eyebrow reveal">Start Today — Free 14-Day Trial</div>
+      <h2 class="cta-title reveal">
+        READY TO<br>
+        <span class="outline">BECOME</span><br>
+        UNSTOPPABLE?
+      </h2>
+      <p class="cta-desc reveal">
+        Join over 12,000 athletes who chose to stop settling. Drop your email and we'll pair you with the right program
+        and coach within 24 hours.
+      </p>
+      <div class="cta-form reveal">
+        <input type="email" placeholder="Enter your email address" />
+        <button>Claim Free Trial</button>
+      </div>
+      <p style="font-size:.75rem;color:#444;font-family:var(--font-cond);letter-spacing:.1em;" class="reveal">
+        No credit card required · Cancel anytime · Join 12,000+ members
+      </p>
     </div>
-    <p style="font-size:.75rem;color:#444;font-family:var(--font-cond);letter-spacing:.1em;" class="reveal">
-      No credit card required · Cancel anytime · Join 12,000+ members
-    </p>
-  </div>
 
-  <footer class="reveal">
-    <a href="#" class="footer-logo">IRON<span>FORM</span></a>
-    <ul class="footer-links">
-      <li><a href="#">About</a></li>
-      <li><a href="#">Programs</a></li>
-      <li><a href="#">Trainers</a></li>
-      <li><a href="#">Blog</a></li>
-      <li><a href="#">Contact</a></li>
-      <li><a href="#">Privacy</a></li>
-    </ul>
-    <div class="footer-copy">© 2026 IRONFORM. All rights reserved.</div>
-  </footer>
-</section>
+    <footer class="reveal">
+      <a href="#" class="footer-logo">IRON<span>FORM</span></a>
+      <ul class="footer-links">
+        <li><a href="#">About</a></li>
+        <li><a href="#">Programs</a></li>
+        <li><a href="#">Trainers</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Privacy</a></li>
+      </ul>
+      <div class="footer-copy">© 2026 IRONFORM. All rights reserved.</div>
+    </footer>
+  </section>
 
-<script>
-  // ── Cursor ──
-  const cursor = document.getElementById('cursor');
-  const ring = document.getElementById('cursorRing');
-  let mx = 0, my = 0, rx = 0, ry = 0;
-  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-  function animateCursor() {
-    cursor.style.left = mx + 'px';
-    cursor.style.top = my + 'px';
-    rx += (mx - rx) * 0.12;
-    ry += (my - ry) * 0.12;
-    ring.style.left = rx + 'px';
-    ring.style.top = ry + 'px';
-    requestAnimationFrame(animateCursor);
-  }
-  animateCursor();
+  <script>
+    // ── Cursor ──
+    const cursor = document.getElementById('cursor');
+    const ring = document.getElementById('cursorRing');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+    function animateCursor() {
+      cursor.style.left = mx + 'px';
+      cursor.style.top = my + 'px';
+      rx += (mx - rx) * 0.12;
+      ry += (my - ry) * 0.12;
+      ring.style.left = rx + 'px';
+      ring.style.top = ry + 'px';
+      requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
 
-  // ── Nav scroll ──
-  const nav = document.getElementById('mainNav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 60);
-  });
-
-  // ── Reveal on scroll ──
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
-  }, { threshold: 0.12 });
-  reveals.forEach(el => observer.observe(el));
-
-  // ── Count-up animation ──
-  const counters = document.querySelectorAll('.count-up');
-  const counterObserver = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      const el = e.target;
-      const target = parseInt(el.dataset.target);
-      const duration = 1800;
-      const step = target / (duration / 16);
-      let current = 0;
-      const timer = setInterval(() => {
-        current = Math.min(current + step, target);
-        el.textContent = Math.floor(current);
-        if (current >= target) clearInterval(timer);
-      }, 16);
-      counterObserver.unobserve(el);
+    // ── Nav scroll ──
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
     });
-  }, { threshold: 0.5 });
-  counters.forEach(el => counterObserver.observe(el));
-</script>
+
+    // ── Reveal on scroll ──
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => observer.observe(el));
+
+    // ── Count-up animation ──
+    const counters = document.querySelectorAll('.count-up');
+    const counterObserver = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        const target = parseInt(el.dataset.target);
+        const duration = 1800;
+        const step = target / (duration / 16);
+        let current = 0;
+        const timer = setInterval(() => {
+          current = Math.min(current + step, target);
+          el.textContent = Math.floor(current);
+          if (current >= target) clearInterval(timer);
+        }, 16);
+        counterObserver.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(el => counterObserver.observe(el));
+  </script>
 </body>
+
 </html>
